@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <ul class="social">
-                    <li><button  data-tip="Add to Cart" id="add_cart" value="{{$item->id}}"><i class="fa fa-shopping-cart"></i></button></li>
+                    <li><button  data-tip="Add to Cart" class="add_cart" value="{{$item->id}}"><i class="fa fa-shopping-cart"></i></button></li>
                 </ul>
             </div>
         </div>
@@ -43,13 +43,13 @@
 
 
 <script>
-var id = $('#add_cart').val();
+var id = $('.add_cart').val();
 
-$('#add_cart').click(function(){
+$('.add_cart').click(function(){
    $.ajax({
     type: 'POST',
     url: '{{url("add_cart")}}',
-    data: {id : id ,"_token": $('#token').val()},
+    data: {id : $(this).val() ,"_token": $('#token').val()},
     success:function(data) {
         if(data == 1)
         {
