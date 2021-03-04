@@ -15,8 +15,10 @@ class CreateTransactionTable extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
+            $table->string('transasction_id');
             $table->string('user_id');
             $table->string('item_id');
+            $table->string('total_amount');
             $table->string('payment_method');
             $table->timestamps();
         });
